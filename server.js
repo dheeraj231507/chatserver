@@ -10,7 +10,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://chatclient-steel.vercel.app/"],
     credentials: true,
   })
 );
