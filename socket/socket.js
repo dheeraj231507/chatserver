@@ -14,6 +14,7 @@ const io = new Server(server, {
     origin: "https://chatclient-steel.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
   },
 });
 

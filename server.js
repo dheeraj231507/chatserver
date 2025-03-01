@@ -10,14 +10,12 @@ connectDB();
 
 app.use(
   cors({
-    origin: ["https://chatclient-steel.vercel.app"],
+    origin: "https://chatclient-steel.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-// Manually handle preflight requests
-app.options("*", cors()); // This ensures all OPTIONS requests are handled
 
 app.use(express.json());
 app.use(cookieParser());
