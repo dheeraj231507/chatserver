@@ -16,6 +16,17 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+// ✅ Ensure Preflight (OPTIONS) Requests are Handled
+app.options("*", (req, res) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://chatclient-steel.vercel.app"
+  );
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  return res.sendStatus(204);
+});
 
 app.use(express.json());
 app.use(cookieParser());
